@@ -15,7 +15,7 @@ class Requests(Base):
     customer_id = Column(Integer, ForeignKey(''), nullable=True)
     create_date = Column(DATETIME)
     theme = Column(String)
-    text = Column(String)
+    text = Column(String)asdasdasd
     done_date = Column(DATETIME)
     status = Column(String)
 
