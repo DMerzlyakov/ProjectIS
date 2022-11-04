@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DATE, Boolean, create_engine, DATE
 from sqlalchemy.orm import declarative_base, relationship
+import psycopg2
 
 Base = declarative_base()
 
@@ -159,5 +160,5 @@ class EmployeesSkills(Base):
 
 
 if __name__ == '__main__':
-    engine = create_engine('postgresql+psycopg2://postgres:postgrespw@localhost:49153/postgres')
+    engine = create_engine('postgresql+psycopg2://postgres:1234@localhost:5432/postgres')
     Base.metadata.create_all(engine)
