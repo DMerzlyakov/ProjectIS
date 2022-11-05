@@ -1,11 +1,12 @@
 from fastapi import FastAPI
-from src.service.handlers.project_handler import router
+
 from src.config.config import *
+from src.service.handlers.project_handler import router
 
 
 def get_application() -> FastAPI:
     application = FastAPI(title="Project IS")
-    application.include_router(router)
+    application.include_router(router, prefix=API_PREFIX)
     return application
 
 
