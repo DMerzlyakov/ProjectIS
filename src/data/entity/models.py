@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DATE, Boolean, create_engine, DATE, insert
-from sqlalchemy.orm import declarative_base, relationship
-import psycopg2
 import datetime
+
+from sqlalchemy import Column, Integer, String, ForeignKey, create_engine, DATE, insert
+from sqlalchemy.orm import declarative_base
 
 from src.config.config import DATABASE_URL
 
@@ -181,5 +181,5 @@ def update_base():
 
 if __name__ == '__main__':
     engine = create_engine(DATABASE_URL)
+    Base.metadata.create_all(engine)
     update_base()
-    # Base.metadata.create_all(engine)
