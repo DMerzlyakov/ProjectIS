@@ -1,2 +1,5 @@
 greenlet==2.0.0.post0
 SQLAlchemy==1.4.43
+
+psycopg2~=2.9.5
+fastapi~=0.86.0
