@@ -3,6 +3,8 @@ from sqlalchemy.orm import declarative_base, relationship
 import psycopg2
 import datetime
 
+from src.config.config import DATABASE_URL
+
 Base = declarative_base()
 
 
@@ -170,12 +172,14 @@ def update_base():
     data_for_vacancies = [{'type': 'Python-developer', 'role_id': 1, 'skill_id': 1}, {'type': 'java-developer', 'role_id': 2, 'skill_id': 2}]
     data_for_vacanciesProject = [{'project_id': 1, 'vacancy_id': 1}, {'project_id': 2, 'vacancy_id': 2}]
 
+    engine.execute(insert(Role, data_for_role))
     engine.execute(insert(Projects, data_for_projects))
     engine.execute(insert(Skills, data_for_skills))
+
     engine.execute(insert(Vacancies, data_for_vacancies))
     engine.execute(insert(VacanciesProject, data_for_vacanciesProject))
 
 if __name__ == '__main__':
-    engine = create_engine('postgresql+psycopg2://postgres:postgrespw@localhost:49153/postgres')
-    # Base.metadata.create_all(engine)
+    engine = create_engine(DATABASE_URL)
     update_base()
+    # Base.metadata.create_all(engine)
