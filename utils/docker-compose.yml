@@ -6,11 +6,11 @@ services:
     image: postgres
     restart: always
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=pro_db
 
   pgadmin:
       container_name: pgadmin
@@ -19,21 +19,22 @@ services:
         - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
         - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
       ports:
-        - 5050:80
+        - "5050:80"
       depends_on:
         - db
   app:
     container_name: app
     build: ..
 #    --host 0.0.0.0 --port 8000
-    command: bash -c "uvicorn server:app  " #--reload
-#    volumes:
-#      - .:/app
+#    command: bash -c "uvicorn server:app  " #--reload
+    command: uvicorn server:app --host 0.0.0.0
     ports:
-      - 8000:8000
+      - "8000:8000"
     depends_on:
       - db
     restart: always
+#    environment:
+#      DATABASE_URL: postgres://todoapp@postgres/todos
 #
 #  db:
 #    image: postgres:15.0do
