@@ -1,13 +1,11 @@
-import datetime
-
-from sqlalchemy import create_engine, insert
+from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
+
 from src.config.config import *
-from src.data.entity.models import Projects, Skills, Vacancies, VacanciesProject, Role
 
 
 def connect_db():
-    engine = create_engine(DATABASE_URL)
+    engine = create_engine(settings.db_url)
     session = Session(bind=engine.connect())
     return session
 
