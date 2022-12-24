@@ -35,6 +35,15 @@ services:
       - "5050:80"
     depends_on:
       - db
+  web:
+    build:
+      context: .
+      dockerfile: client/Dockerfile.web
+    ports:
+      - "4001:3000"
+    depends_on:
+      - server
+
 volumes:
   postgres_data:
 
