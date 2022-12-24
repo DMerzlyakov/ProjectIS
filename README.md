@@ -59,10 +59,10 @@
 
 
 ## Схема архитектуры
-![Архитектура](images/Architecture.png)
+![Архитектура](server/images/Architecture.png)
 
 ## Модель данных
-![Модель БД](images/DB_model.png)
+![Модель БД](server/images/DB_model.png)
 
 ## Используемых технологии
 
