@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   server:
-    build: .
+    build:
+      context: .
+      dockerfile: server/Dockerfile.api
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn server:app --host 0.0.0.0'
     ports:
       - 8008:8000
@@ -33,6 +35,15 @@ services:
       - "5050:80"
     depends_on:
       - db
+  web:
+    build:
+      context: .
+      dockerfile: client/Dockerfile.web
+    ports:
+      - "4001:3000"
+    depends_on:
+      - server
+
 volumes:
   postgres_data:
 

@@ -1,0 +1,7 @@
+FROM node:alpine
+WORKDIR /client
+COPY client/package.json .
+COPY client/package-lock.json .
+COPY client/ .
+RUN npm i
+CMD ["npm", "run", "start"]
