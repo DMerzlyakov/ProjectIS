@@ -9,7 +9,7 @@
 - Телицын Егор
 - Кучерявенко Никита
 - Баранов Александр
-
+- Костюченко Илья
 Проект: https://github.com/DMerzlyakov/ProjectIS
 
 Сценарии атрибутов качества: https://docs.google.com/spreadsheets/d/1vZhYrWvsmRe6hDoN15rkn3oRAOgsZTTs8LZ17UNmrIA/edit#gid=0
